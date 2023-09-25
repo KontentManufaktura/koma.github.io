@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koma website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="navbar">
+    <div class="navbar-content">
+        <img src="img\kontent manufaktúra csak róka.png" alt="Logo" class="logo">
+        <div class="button" onclick="scrollToServices();"><h1>Szolgáltatások</h1></div>
+        <div class="button" onclick="scrollToTeam();"><h1>Rólunk</h1></div>
+        <div class="button" onclick="scrollToContact();"><h1>Kapcsolat</h1></div>
+        <div id="socialMedia">
+            <a href="https://www.facebook.com/Kontentmanufaktura/" target="_blank"><img src="img\icons8-facebook.svg" alt="Facebook"></a>
+            <a href="https://www.instagram.com/kontentmanufaktura/" target="_blank"><img src="img\icons8-instagram.svg" alt="Instagram"></a>
+            
+        </div>
+        <div id="i18n" class="button" onclick="navigateTo('#');"><h1>ENG</h1></div>
+    </div>
+</div>
+
+<body>
+
+    <div id="greeting">
+        <div id="greetingText">
+            <h1>Hello, mi vagyunk a KOMA!
+                Három kreatív szabadúszó, többéves reklámügynökségi tapasztalattal a hátunk mögött összeálltuk egy
+                csapatba, hogy igazán kreatív multimédiás tartalmakkal és hirdetési kampányokkal célba juttassuk a
+                márkád üzeneteit a közösségi médiában.
+            </h1>
+        </div>
+        <div id="greetingLogo">
+            <img src="img\kontent manufaktúra végleges szöveg róka.png" alt="greetingLogo" id="greetingLogoImg">
+        </div>
+    </div>
+
+    <div id="team">
+        <div id="teamText"><h1>Csapatunk</h1></div>
+        <div id="teamMembers">
+            <div id="Edmond" class="memberImg">
+                <img src="img\347632457_6350062381708510_5033753820136447628_n.jpg" alt="">
+                <h1>Edmond</h1>
+                <h2>Social media manager</h2>
+            </div>
+            <div id="Ingrid"  class="memberImg">
+                <img src="img\347632457_6350062381708510_5033753820136447628_n.jpg" alt="">
+                <h1>Ingrid</h1>
+                <h2>Projekt koordinátor</h2>
+            </div>
+            <div id="Gergo" class="memberImg">
+                <img src="img\347632457_6350062381708510_5033753820136447628_n.jpg" alt="">
+                <h1>Gergő</h1>
+                <h2>Grafikus</h2>
+            </div>
+        </div>
+    </div>
+    <hr class="solid">
+
+    <div id="services">
+        <div id="servicesText"><h1>Szolgáltatások</h1></div>
+        <div id="servicesTypes">
+            <div class="serviceIMG">
+                <img src="img\social-media-addiction-2021-09-24-02-56-43-utc.JPG" alt="">
+                <h2>Közösségi média menedzsment</h2>
+            </div>
+            <div class="serviceIMG">
+                <img src="img\camera-2022-11-02-16-02-13-utc.jpg" alt="">
+                <h2>Fotózás</h2>
+            </div>
+            <div class="serviceIMG">
+                <img src="img\camera-crew-with-professional-camera-in-studio-2023-04-04-19-06-21-utc.jpg" alt="">
+                <h2>Film- és videógyártás</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="contact">
+        <div id="contactMain">
+        <div id="salesText">
+           <h1>Ha te is szeretnéd elérni a célközönséged olyan tartalmakkal, amelyek interakciót váltanak ki, akkor kezdjük
+            el a közös munkát. Írd meg nekünk az alábbi űrlapon, hogy miben tudunk segíteni a vállalkozásodnak és mi 3
+            munkanapon belül visszajelzünk.</h1> 
+        </div>
+        <div id="getInContact">
+            <h1>Lépj velünk kapcsolatba!</h1>
+        </div>
+
+        <div id="innerContact">
+            <div id="contactForm">
+                <form action="submit_contact_form.php" method="post">
+                    <div class="container">
+                        <div>
+                            <label for="first_name">First Name:</label>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <div>
+                        <label>Interests:</label>
+                        <input type="checkbox" id="interest1" name="interest1" value="Interest 1">
+                        <label for="interest1">Interest 1</label>
+                        <input type="checkbox" id="interest2" name="interest2" value="Interest 2">
+                        <label for="interest2">Interest 2</label>
+                        <input type="checkbox" id="interest3" name="interest3" value="Interest 3">
+                        <label for="interest3">Interest 3</label>
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+
+
+            <div id="emailPhone">
+                <div id="phone">
+                    +36301653132
+                </div>
+                <div id="email">
+                    kontentmanufaktura@gmail.com
+                </div>
+                <div id="social">
+                    <a href="https://www.facebook.com/Kontentmanufaktura/" target="_blank"><img src="img\icons8-facebook.svg" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/kontentmanufaktura/" target="_blank"><img src="img\icons8-instagram.svg" alt="Instagram"></a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

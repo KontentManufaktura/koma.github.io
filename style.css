@@ -1,0 +1,301 @@
+@font-face {
+    font-family: 'AlbertusNova900';
+    src: url('AlbertusNovaBlack.eot');
+    src: local('Albertus Nova Black'), local('AlbertusNovaBlack'),
+        url('AlbertusNovaBlack.eot?#iefix') format('embedded-opentype'),
+        url('AlbertusNovaBlack.woff2') format('woff2'),
+        url('AlbertusNovaBlack.woff') format('woff'),
+        url('AlbertusNovaBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albertus Nova 300';
+    src: url('AlbertusNovaLight.eot');
+    src: local('Albertus Nova Light'), local('AlbertusNovaLight'),
+        url('AlbertusNovaLight.eot?#iefix') format('embedded-opentype'),
+        url('AlbertusNovaLight.woff2') format('woff2'),
+        url('AlbertusNovaLight.woff') format('woff'),
+        url('AlbertusNovaLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albertus Nova 100';
+    src: url('AlbertusNovaThin.eot');
+    src: local('Albertus Nova Thin'), local('AlbertusNovaThin'),
+        url('AlbertusNovaThin.eot?#iefix') format('embedded-opentype'),
+        url('AlbertusNovaThin.woff2') format('woff2'),
+        url('AlbertusNovaThin.woff') format('woff'),
+        url('AlbertusNovaThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albertus Nova normal';
+    src: url('AlbertusNova.eot');
+    src: local('Albertus Nova'), local('AlbertusNova'),
+        url('AlbertusNova.eot?#iefix') format('embedded-opentype'),
+        url('AlbertusNova.woff2') format('woff2'),
+        url('AlbertusNova.woff') format('woff'),
+        url('AlbertusNova.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Albertus Nova bold';
+    src: url('AlbertusNova-Bold.eot');
+    src: local('Albertus Nova Bold'), local('AlbertusNova-Bold'),
+        url('AlbertusNova-Bold.eot?#iefix') format('embedded-opentype'),
+        url('AlbertusNova-Bold.woff2') format('woff2'),
+        url('AlbertusNova-Bold.woff') format('woff'),
+        url('AlbertusNova-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 12em;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 100; 
+}
+
+.navbar-content {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+    user-select: none;
+
+}
+
+.button{
+    height: 40%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.navbar-content .button {
+color: black;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Albertus Nova 300';
+}
+
+.logo{
+    height: 80%;
+    width: 10%;
+    object-fit: scale-down;
+
+}
+
+#socialMedia{
+    width: 3%;
+}
+
+#i18n{
+    width: 5%;
+    font-family: 'AlbertusNova900';
+
+}
+
+*{
+    /* border: 2px solid black; */
+    user-select: none;
+
+
+}
+
+#greeting {
+    display: flex;
+    align-items: center;
+    background-color: #A6DDD0;
+    height: 40%;
+    font-family: 'AlbertusNova900';
+}
+
+#greetingLogo {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+#greetingText{
+    text-align: center;
+    user-select: none;
+    max-width: 100%;
+
+}
+
+#teamMembers, #servicesTypes, #teamText, #servicesText{
+   display: flex;
+}
+
+#teamText, #teamMembers, #servicesText, #servicesTypes{
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#teamText{
+    color: #ff1b76;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-family: 'AlbertusNova900';
+    
+}
+
+
+#servicesText{
+    color:#03d3a3;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-family: 'AlbertusNova900';
+
+}
+
+#servicesTypes, #teamMembers {
+    display: flex;
+    align-items: stretch; 
+    justify-content: space-between; 
+}
+
+#services{
+    margin-bottom: 5em;
+}
+
+.serviceIMG, .memberImg {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 5em;
+    padding-right: 5em;
+    overflow: hidden;
+    position: relative; /* Add position: relative */
+
+}
+
+.serviceIMG img, .memberImg img {
+    width: 100%;
+    height: 100%;
+ max-width: 100%;
+    object-fit: cover;
+}
+
+.serviceIMG h2 {
+    position: absolute; /* Position the text absolutely */
+    bottom: 0; /* Place it at the bottom */
+    left: 0; /* Place it at the left */
+    width: 100%; /* Take up the full width of the container */
+    background-color: rgba(255, 255, 255, 0.3); /* Add a semi-transparent background */
+    margin: 0; /* Remove any margin */
+    padding: 10px; /* Add some padding for readability */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+h2{
+    padding: none;
+}
+
+#contact{
+    background-color: #A6DDD0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+}
+#getInContact{
+   color: #ff1b76;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-family: 'AlbertusNova900';
+
+}
+
+#salesText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#innerContact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 10em;
+}
+
+#contactMain{
+    width: 60em;
+}
+
+#contactForm{
+    background-color: white;
+    width: 40em;
+    height: 20em;
+    display: flex;
+    margin-top: 2em;
+
+}
+
+#greetingLogoImg{
+    height: 80%;
+    width: 70%;
+    object-fit: scale-down;
+
+}
+
+@media (max-width: 768px) {
+    /* Adjust styles for smaller screens here */
+    /* For example, you can reduce padding, font sizes, etc. */
+
+    /* Navbar */
+    .navbar-content {
+        max-height: 100px;
+    }
+
+    /* Service Images */
+    .serviceIMG {
+        width: 80%;
+        padding: 2em; /* Reduce padding for smaller screens */
+    }
+
+    h1, h2, h3, p{
+        font-size: 1.2em; /* Reduce font size for specific elements */
+    }
+}
