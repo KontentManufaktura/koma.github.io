@@ -11,7 +11,7 @@
 }
 
 @font-face {
-    font-family: 'Albertus Nova 300';
+    font-family: 'AlbertusNova300';
     src: url('AlbertusNovaLight.eot');
     src: local('Albertus Nova Light'), local('AlbertusNovaLight'),
         url('AlbertusNovaLight.eot?#iefix') format('embedded-opentype'),
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-    font-family: 'Albertus Nova 100';
+    font-family: 'AlbertusNova100';
     src: url('AlbertusNovaThin.eot');
     src: local('Albertus Nova Thin'), local('AlbertusNovaThin'),
         url('AlbertusNovaThin.eot?#iefix') format('embedded-opentype'),
@@ -35,7 +35,7 @@
 }
 
 @font-face {
-    font-family: 'Albertus Nova normal';
+    font-family: 'AlbertusNovanormal';
     src: url('AlbertusNova.eot');
     src: local('Albertus Nova'), local('AlbertusNova'),
         url('AlbertusNova.eot?#iefix') format('embedded-opentype'),
@@ -47,7 +47,7 @@
 }
 
 @font-face {
-    font-family: 'Albertus Nova bold';
+    font-family: 'AlbertusNovabold';
     src: url('AlbertusNova-Bold.eot');
     src: local('Albertus Nova Bold'), local('AlbertusNova-Bold'),
         url('AlbertusNova-Bold.eot?#iefix') format('embedded-opentype'),
@@ -60,242 +60,169 @@
 
 
 
-body {
-    margin: 0;
-    padding: 0;
-    padding-top: 12em;
-}
+    * {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+        font-family: 'AlbertusNovanormal';
 
-html, body {
-    width: 100%;
-    height: 100%;
-}
-
+    }
 
 
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #333;
-    z-index: 100; 
+    color: black;
+    font-weight: bold;
 }
 
-.navbar-content {
-    position: sticky;
-    top: 0;
-    background-color: white;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    color: #fff;
-    user-select: none;
-
+#i18nbutton{
+    font-weight: bolder;
 }
 
-.button{
-    height: 40%;
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
+/* Specific selector for .nav-item inside .custom-navbar */
+.navbar .nav-item {
+    color: black;
+    font-size: xx-large;
 }
 
-.navbar-content .button {
-color: black;
-    text-decoration: none;
-    border: none;
+.navbar .navbar-nav .nav-link {
+    color: black; /* Set the desired text color */
+}
+
+/* Hover effect for links (optional) */
+.navbar .navbar-nav .nav-link:hover {
+    color: #03d3a3; /* Set the desired hover color */
     cursor: pointer;
-    font-family: 'Albertus Nova 300';
 }
 
-.logo{
-    height: 80%;
-    width: 10%;
-    object-fit: scale-down;
-
+#navbarLogo{
+    cursor: pointer;
 }
 
-#socialMedia{
-    width: 3%;
-}
-
-#i18n{
-    width: 5%;
-    font-family: 'AlbertusNova900';
-
-}
-
-*{
-    /* border: 2px solid black; */
-    user-select: none;
-
-
-}
-
-#greeting {
-    display: flex;
-    align-items: center;
+#greetingDiv{
     background-color: #A6DDD0;
-    height: 40%;
-    font-family: 'AlbertusNova900';
-}
-
-#greetingLogo {
-    flex: 0 0 auto;
-    width: 50%;
-}
-
-#greetingText{
-    text-align: center;
-    user-select: none;
-    max-width: 100%;
-
-}
-
-#teamMembers, #servicesTypes, #teamText, #servicesText{
-   display: flex;
-}
-
-#teamText, #teamMembers, #servicesText, #servicesTypes{
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-#teamText{
-    color: #ff1b76;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    font-family: 'AlbertusNova900';
-    
-}
-
-
-#servicesText{
-    color:#03d3a3;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    font-family: 'AlbertusNova900';
-
-}
-
-#servicesTypes, #teamMembers {
-    display: flex;
-    align-items: stretch; 
-    justify-content: space-between; 
-}
-
-#services{
-    margin-bottom: 5em;
-}
-
-.serviceIMG, .memberImg {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-left: 5em;
-    padding-right: 5em;
-    overflow: hidden;
-    position: relative; /* Add position: relative */
-
-}
-
-.serviceIMG img, .memberImg img {
+    color: black;
     width: 100%;
+    background-image: linear-gradient(to bottom right, #03d3a3, #ff1b76);
+
+}
+
+.img-container {
+    position: relative;
+}
+
+.img-container-services .img-text {
+    position: absolute;
+    font-size: x-large;
+    bottom:20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding: 5px 10px;
+    transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+
+
+
+.img-container {
     height: 100%;
- max-width: 100%;
-    object-fit: cover;
+
 }
 
-.serviceIMG h2 {
-    position: absolute; /* Position the text absolutely */
-    bottom: 0; /* Place it at the bottom */
-    left: 0; /* Place it at the left */
-    width: 100%; /* Take up the full width of the container */
-    background-color: rgba(255, 255, 255, 0.3); /* Add a semi-transparent background */
-    margin: 0; /* Remove any margin */
-    padding: 10px; /* Add some padding for readability */
-    box-sizing: border-box; /* Include padding in the width */
+.img-container img {
+    height: 60%;
+    width: auto;
 }
 
-h2{
-    padding: none;
+.img-container-services{
+    height: 100%;
 }
+
+.img-container-services img{
+    height: 80%;
+    width: 90%;
+}
+
+.img-containerSub{
+    height: 100%;
+
+}
+
+.img-containerSub img{
+    height: 100%;
+    width: auto;
+}
+
+#servicesRow,#serviceTypes{
+    width: 100%;
+}
+
+/* Add shadows and rounded edges to images */
+.img-container-services img {
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8); /* Shadow effect */
+    transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* Scale up the image on hover */
+.img-container-services img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Style the member images in the team section */
+.memberImg img {
+    border-radius: 10%; /* Make images circular */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.memberImgSub img{
+    border-radius: 10%; /* Make images circular */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
 
 #contact{
-    background-color: #A6DDD0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(166, 221, 208);
     
-}
-#getInContact{
-   color: #ff1b76;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-family: 'AlbertusNova900';
-
-}
-
-#salesText{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
 #innerContact{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 10em;
-}
-
-#contactMain{
-    width: 60em;
+    width: 60%;
 }
 
 #contactForm{
     background-color: white;
-    width: 40em;
-    height: 20em;
-    display: flex;
-    margin-top: 2em;
+}
+
+.form-group textarea, .form-group input{
+    border: 1px solid #03d3a3 ;
+}
+
+.form-group label{
+    color: #03d3a3;
+}
+
+.form-group input[type=submit]{
+border: none;
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(to bottom right, #03d3a3, #ff1b76);
 
 }
 
-#greetingLogoImg{
-    height: 80%;
-    width: 70%;
-    object-fit: scale-down;
+#contactForm{
+    border-radius: 5%;
+    margin-bottom: 5%;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+
 
 }
 
-@media (max-width: 768px) {
-    /* Adjust styles for smaller screens here */
-    /* For example, you can reduce padding, font sizes, etc. */
 
-    /* Navbar */
-    .navbar-content {
-        max-height: 100px;
-    }
 
-    /* Service Images */
-    .serviceIMG {
-        width: 80%;
-        padding: 2em; /* Reduce padding for smaller screens */
-    }
-
-    h1, h2, h3, p{
-        font-size: 1.2em; /* Reduce font size for specific elements */
-    }
+.serviceSubImg{
+    border-radius: 10%; /* Make images circular */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
+
