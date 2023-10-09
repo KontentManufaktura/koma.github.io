@@ -238,6 +238,13 @@ border: none;
     h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
         font-size: 1rem; /* Adjust the font size for smaller screens */
     }
+    #memberRow2 {
+        flex-direction: column-reverse; /* Reverses the column order on small screens */
+    }
+
+    .col-md-6 {
+        width: 100%; /* Make both columns take up the full width on small screens */
+    }
 }
 
 @media (max-width: 576px) {
