@@ -67,7 +67,7 @@
         font-family: 'AlbertusNovanormal';
     }
 
-    h1,h2,h3{
+    h1,h2,h3,h4,h5,h6{
         font-size: x-large;
     }
 
@@ -218,35 +218,45 @@ border: none;
 }
 
 
-/* Add a CSS media query to adjust the font size of h1 for smaller screens */
-@media (max-width: 768px) {
-    h1,h2,h3, .img-text,.img-container-services .img-text {
-        font-size: 1.5rem; /* Adjust the font size for smaller screens */
-    }
-}
-
-/* Add another media query for even smaller screens if needed */
-@media (max-width: 576px) {
-    h1,h2,h3, .img-text,.img-container-services .img-text {
-        font-size: 1rem; /* Further adjust the font size for very small screens */
-    }
-}
-
-@media (max-width: 1024) {
-    h1,h2,h3, .img-text,.img-container-services .img-text {
-        font-size: 2rem; /* Adjust the font size for smaller screens */
-    }
-
-}
-
-
-
 .img-fluid{
     height: auto;
     width:auto;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 #socialImage,#photoImage,#videoImage{
     cursor: pointer;
 }
+
+#edmondTeamText,#ingridTextTeam,#gergoTextTeam{
+    font-size: 1.4rem;
+}
+
+/* Add a CSS media query to adjust the font size of h1 for smaller screens */
+@media (max-width: 768px) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
+        font-size: 1rem; /* Adjust the font size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText , #gergoTextTeam,#ingridTextTeam{
+        font-size: 0.5rem; /* Further adjust the font size for very small screens */
+    }
+}
+
+@media (max-width: 1024) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
+        font-size: 0.5rem; /* Adjust the font size for smaller screens */
+    }
+
+}
+
+@media (max-width: 1200) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText, #gergoTextTeam,#ingridTextTeam{
+        font-size: 0.7rem; /* Adjust the font size for smaller screens */
+    }
+
+}
+
