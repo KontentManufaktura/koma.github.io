@@ -65,9 +65,15 @@
         -ms-user-select: none; /* IE 10 and IE 11 */
         user-select: none; /* Standard syntax */
         font-family: 'AlbertusNovanormal';
-
     }
 
+    h1,h2,h3{
+        font-size: x-large;
+    }
+
+    #i18nbutton{
+        font-size: large;
+    }
 
 .navbar {
     color: black;
@@ -81,12 +87,14 @@
 /* Specific selector for .nav-item inside .custom-navbar */
 .navbar .nav-item {
     color: black;
-    font-size: xx-large;
+    font-size: large;
 }
 
 .navbar .navbar-nav .nav-link {
     color: black; /* Set the desired text color */
+    
 }
+
 
 /* Hover effect for links (optional) */
 .navbar .navbar-nav .nav-link:hover {
@@ -99,6 +107,19 @@
 }
 
 #greetingDiv{
+    background-color: #A6DDD0;
+    color: black;
+    width: 100%;
+}
+
+#greetingDivServices{
+    background-color: #A6DDD0;
+    color: black;
+    width: 100%;
+
+}
+
+#greetingDivTeam{
     background-color: #A6DDD0;
     color: black;
     width: 100%;
@@ -122,19 +143,13 @@
 }
 
 
-
-.img-container {
-    height: 100%;
-
-}
-
 .img-container img {
     height: 60%;
     width: auto;
 }
 
 .img-container-services{
-    height: 100%;
+    height: max-content;
 }
 
 .img-container-services img{
@@ -156,10 +171,7 @@
     width: 100%;
 }
 
-/* Add shadows and rounded edges to images */
 .img-container-services img {
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8); /* Shadow effect */
     transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
 }
 
@@ -169,16 +181,8 @@
 }
 
 
-/* Style the member images in the team section */
-.memberImg img {
-    border-radius: 10%; /* Make images circular */
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
-}
 
-.memberImgSub img{
-    border-radius: 10%; /* Make images circular */
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
-}
+
 
 
 #contact{
@@ -190,38 +194,59 @@
     width: 60%;
 }
 
-#contactForm{
-    background-color: white;
-}
+
 
 .form-group textarea, .form-group input{
     border: 1px solid #03d3a3 ;
 }
 
 .form-group label{
-    color: #03d3a3;
+    color: black;
 }
 
 .form-group input[type=submit]{
 border: none;
     border-radius: 10%;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
     background-image: linear-gradient(to bottom right, #03d3a3, #ff1b76);
 
 }
 
 #contactForm{
-    border-radius: 5%;
     margin-bottom: 5%;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
 
 
 }
 
 
-
-.serviceSubImg{
-    border-radius: 10%; /* Make images circular */
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+/* Add a CSS media query to adjust the font size of h1 for smaller screens */
+@media (max-width: 768px) {
+    h1,h2,h3, .img-text,.img-container-services .img-text {
+        font-size: 1.5rem; /* Adjust the font size for smaller screens */
+    }
 }
 
+/* Add another media query for even smaller screens if needed */
+@media (max-width: 576px) {
+    h1,h2,h3, .img-text,.img-container-services .img-text {
+        font-size: 1rem; /* Further adjust the font size for very small screens */
+    }
+}
+
+@media (max-width: 1024) {
+    h1,h2,h3, .img-text,.img-container-services .img-text {
+        font-size: 2rem; /* Adjust the font size for smaller screens */
+    }
+
+}
+
+
+
+.img-fluid{
+    height: auto;
+    width:auto;
+    object-fit: cover;
+}
+
+#socialImage,#photoImage,#videoImage{
+    cursor: pointer;
+}

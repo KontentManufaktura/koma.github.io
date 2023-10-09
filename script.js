@@ -1,6 +1,6 @@
 function scrollToContact() {
     const contactSection = document.getElementById('contact');
-    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Use .navbar to select the navbar
+    const navbarHeight = document.querySelector('.navbar').offsetHeight; 
     window.scrollTo({
         top: contactSection.offsetTop - navbarHeight,
         behavior: 'smooth'
@@ -19,6 +19,24 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const socialImage = document.getElementById("socialImage");
+
+    socialImage.addEventListener("click", function () {
+        fetch("services.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("content").innerHTML = data;
+            })
+            .catch(error => console.error(error));
+    });
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const contentContainer = document.getElementById('content');
     const loadPage1Button = document.getElementById('loadServices');
@@ -26,6 +44,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadHomePage = document.getElementById('navbarLogo');
 
 
+
+    document.getElementById('content').addEventListener('click', function (event) {
+        if (event.target.id === 'socialImage') {
+            loadContent('services.html', 'content');
+        }
+    });
+
+    document.getElementById('content').addEventListener('click', function (event) {
+        if (event.target.id === 'photoImage') {
+            loadContent('services.html', 'content');
+        }
+    });
+
+    document.getElementById('content').addEventListener('click', function (event) {
+        if (event.target.id === 'videoImage') {
+            loadContent('services.html', 'content');
+        }
+    });
 
     // // Load initial content
     loadContent('home.html');
@@ -43,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         loadContent('home.html');
     });
 
-    // Function to load content from an external HTML file
     function loadContent(page) {
         fetch(page)
             .then(response => response.text())
@@ -55,12 +90,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function scrollToTop() {
-    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Get the height of the navbar
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
     window.scrollTo({
         top: -navbarHeight,
         behavior: 'smooth'
     });
 }
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     loadNavbar();
     const contactLink = document.querySelector('.nav-link[onclick="scrollToContact()"]');
@@ -73,22 +111,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadPage2Button = document.getElementById('loadTeam');
     const loadHomePage = document.getElementById('navbarLogo');
 
+
     loadPage1Button.addEventListener('click', scrollToTop);
     loadPage2Button.addEventListener('click', scrollToTop);
     loadHomePage.addEventListener('click', scrollToTop);
+
 });
 
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var navbar = document.querySelector('.navbar');
-    var navbarCollapse = document.querySelector('.navbar-collapse');
-
-    window.addEventListener('scroll', function () {
-        // Check if the collapsible navbar is open
-        if (navbarCollapse.classList.contains('show')) {
-            // Close the collapsible navbar
-            navbarCollapse.classList.remove('show');
-        }
-    });
-});
