@@ -61,14 +61,16 @@
 
 
     * {
-        -webkit-user-select: none; /* Safari */
-        -ms-user-select: none; /* IE 10 and IE 11 */
-        user-select: none; /* Standard syntax */
-        font-family: 'AlbertusNovanormal';
+        font-family: "Helvetica", sans-serif;
+        caret-color: transparent;
     }
+
+
 
     h1,h2,h3,h4,h5,h6{
         font-size: x-large;
+        line-height: 2rem;
+
     }
 
     #i18nbutton{
@@ -78,6 +80,10 @@
 .navbar {
     color: black;
     font-weight: bold;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
 }
 
 #i18nbutton{
@@ -88,11 +94,13 @@
 .navbar .nav-item {
     color: black;
     font-size: large;
+
 }
 
 .navbar .navbar-nav .nav-link {
     color: black; /* Set the desired text color */
-    
+    font-variant: small-caps;
+
 }
 
 
@@ -110,6 +118,7 @@
     background-color: #A6DDD0;
     color: black;
     width: 100%;
+   
 }
 
 #greetingDivServices{
@@ -144,8 +153,8 @@
 
 
 .img-container img {
-    height: 60%;
-    width: auto;
+    height: auto;
+    width: 70%;
 }
 
 .img-container-services{
@@ -163,8 +172,8 @@
 }
 
 .img-containerSub img{
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 70%;
 }
 
 #servicesRow,#serviceTypes{
@@ -182,8 +191,19 @@
 
 
 
+#teamText{
+    font-variant: small-caps; 
+    letter-spacing: 0.5rem;
+    font-size: xx-large;
+    font-weight: bold;
+}
 
-
+#servicesText{
+    font-variant: small-caps; 
+    letter-spacing: 0.5rem;
+    font-size: xx-large;
+    font-weight: bold;
+}
 
 #contact{
     background-color: rgb(166, 221, 208);
@@ -217,53 +237,157 @@ border: none;
 
 }
 
+#greetingLogoImg{
+    height: auto;
+    max-width: 40%;
+}
 
 .img-fluid{
     height: auto;
-    width:auto;
+    width:60%;
     object-fit: cover;
     border-radius: 15px;
 }
 
-#socialImage,#photoImage,#videoImage{
+.homePageServicesImg ,.homePageTeamImg{
     cursor: pointer;
 }
 
 #edmondTeamText,#ingridTextTeam,#gergoTextTeam{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
+
+#servicesSubTitle,#teamsubTitle{
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    color: #ff1b76;
+    font-size: xx-large;
+
+}
+
+#teamTextAboutUs,#teamTextServices{
+    line-height: 2.5rem;
+    width: 80%;
+}
+
+.serviceOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+
 
 /* Add a CSS media query to adjust the font size of h1 for smaller screens */
-@media (max-width: 768px) {
-    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
-        font-size: 1rem; /* Adjust the font size for smaller screens */
-    }
-    #memberRow2 {
-        flex-direction: column-reverse; /* Reverses the column order on small screens */
-    }
 
-    .col-md-6 {
-        width: 100%; /* Make both columns take up the full width on small screens */
-    }
-}
 
 @media (max-width: 576px) {
     h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText , #gergoTextTeam,#ingridTextTeam{
         font-size: 0.5rem; /* Further adjust the font size for very small screens */
+        max-width: 100%; /* Make both columns take up the full width on small screens */
+
     }
+    #videoServiceText,#photoServiceText,#socialServiceText{
+        font-size: small;
+    }
+
 }
 
-@media (max-width: 1024) {
-    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
+@media (max-width: 768px) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text ,#servicesSubTitle,#teamsubTitle, #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
         font-size: 0.5rem; /* Adjust the font size for smaller screens */
+        max-width: 100%; /* Make both columns take up the full width on small screens */
+
+
     }
+
+    #videoServiceText,#photoServiceText,#socialServiceText{
+        font-size: small;
+    }
+}
+
+@media (max-width: 1024px) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
+        font-size: 0.8rem; /* Adjust the font size for smaller screens */
+        max-width: 100%; /* Make both columns take up the full width on small screens */
+
+    }
+
+    #videoServiceText,#photoServiceText,#socialServiceText{
+        font-size: small;
+    }
+
+    #greetingLogoImg{
+        height: auto;
+        max-width: 100%;
+    }
+    
 
 }
 
-@media (max-width: 1200) {
-    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText, #gergoTextTeam,#ingridTextTeam{
-        font-size: 0.7rem; /* Adjust the font size for smaller screens */
+@media (max-width: 1200px) {
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text,#services1text , #edmondTeamText, #gergoTextTeam,#ingridTextTeam,#greetingText,
+    #servies1text{
+        font-size: 1rem; /* Adjust the font size for smaller screens */
+        width: 100%;
     }
+
+    #teamTextAboutUs,#teamTextServices{
+        line-height: 1.5rem;
+        width: 80%;
+    }
+
+    #memberRow2 {
+        flex-direction: column-reverse; /* Reverses the column order on small screens */
+        justify-content: center;
+        align-items: center;
+    }
+
+    #memberRow1,#memberRow3{
+        flex-direction: column; /* Reverses the column order on small screens */
+        justify-content: center;
+        align-items: center;
+    }
+
+    #serviceTypes {
+        flex-direction: column; /* Make the services stack vertically on small screens */
+        justify-content: center;
+        align-items: center;
+    }
+    #memberRow1 img,#memberRow2 img, #memberRow3 img{
+        height: auto;
+        width: 50%;
+    }
+
+    #videoServiceText,#photoServiceText,#socialServiceText{
+        font-size: medium;
+    }
+
+    
+
+
+    .col-md-6 {
+        max-width: 100%; /* Make both columns take up the full width on small screens */
+        margin-top: 1rem;
+
+    }
+
+    .homePageServicesImg,.homePageTeamImg{
+        margin-top: 3rem;
+    }
+
+    #services2title,#services1title,#services3title{
+        margin-top: 1rem;
+    }
+    
 
 }
 

@@ -31,22 +31,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     document.getElementById('content').addEventListener('click', function (event) {
-        if (event.target.id === 'socialImage') {
+        if (event.target.classList.contains('homePageServicesImg')) {
             loadContent('services.html', 'content');
         }
     });
 
+
     document.getElementById('content').addEventListener('click', function (event) {
-        if (event.target.id === 'photoImage') {
-            loadContent('services.html', 'content');
+        if (event.target.classList.contains('homePageTeamImg')) {
+            loadContent('team.html', 'content');
         }
     });
 
-    document.getElementById('content').addEventListener('click', function (event) {
-        if (event.target.id === 'videoImage') {
-            loadContent('services.html', 'content');
-        }
-    });
 
     // // Load initial content
     loadContent('home.html');
@@ -138,13 +134,13 @@ var languages = {
 
         //services
         servicesSubTitle: "Services",
-        servicesGreeting: "Social media is part of our daily lives, but for us it's also our job and hobby. With our multimedia content production, our goal is to make our partners visible and their messages reach the right audience.Get to know our previous works by clicking on the pictures and let's start a new project together!",
+        servicesGreeting: "Social media is part of our daily lives, but for us it's also our job and hobby. With our multimedia content production, our goal is to make our partners visible and their messages reach the right audience.Get to know our previous works by clicking on the pictures and let's start a new project together! ",
         servicesSocialtitle: "Social media management",
-        servicesSocialText: "Social media is part of our daily lives, but for us it's also our job and hobby. With our multimedia content production, our goal is to make our partners visible and their messages reach the right audience.Get to know our previous works by clicking on the pictures and let's start a new project together!",
+        servicesSocialText: "Management of social media platforms: creating a communication strategy, writing and producing posts, designing graphic and branding elements, coordinating online campaigns, monitoring results, and managing comments/messages.",
         servicesVideoTitle: "Film and video production",
-        servicesVideoText: "Image videos, short films, product presentations movies - from ideation to full implementation.",
+        servicesVideoText: "Image videos, short films, product presentations movies - from ideation to full implementation: commercials, image films, TikTok videos, short films, feature films, live stream (FB, YouTube, IG), drone films",
         servicesPhotoTitle: "Photography",
-        servicesPhotoText: "Photography making with our team - from idea to professional use.",
+        servicesPhotoText: "Photography making with our team - from idea to professional use: product photography, location photography, food photography, event photography, workplace photography, drone photography, portrait photography, team photography",
 
 
         //team
@@ -169,14 +165,14 @@ var languages = {
         contactFromMessage: "Üzenet",
         contactFormInterests: "Érdeklődési kör",
         contactFormSocial: "Közösségi média menedzsment",
-        contactFormVideo: "Videózás",
-        contactFormPhoto: "Fotózás",
+        contactFormVideo: "Fotózás",
+        contactFormPhoto: "Film- és videógyártás",
         contactPageTel: "Telefonszám",
         submitButtonText: "Küldés",
 
         //homepage
         greetingTextHomePage: "Hello, mi vagyunk a KOMA! Három kreatív szabadúszó, többéves reklámügynökségi tapasztalattal a hátunk mögött összeálltuk egy csapatba, hogy igazán kreatív multimédiás tartalmakkal és hirdetési kampányokkal célba juttassuk a márkád üzeneteit a közösségi médiában.",
-        homePageTeamText: "Csapat",
+        homePageTeamText: "Csapatunk",
         homePageIngridText: "Projekt koordinátor",
         homePageGergoText: "Grafikus",
         homePageServicesText: "Szolgáltatások",
@@ -186,13 +182,13 @@ var languages = {
 
         //servicespage
         servicesSubTitle: "Szolgáltatások",
-        servicesGreeting: "Mindennapjaink része a közösségi média, nekünk pedig a digitális marketing a munkánk és a hobbink is egyben. Multimédiás tartalomgyártásunkkal az a célunk, hogy partnereink láthatóvá váljanak és üzeneteik elérjék a megfelelő közönséget.Ismerd meg korábbi munkáinkat a képekre kattintva és kezdjünk bele együtt egy új projektbe!",
+        servicesGreeting: "Mindennapjaink része a közösségi média, nekünk pedig a digitális marketing a munkánk és a hobbink is egyben. Multimédiás tartalomgyártásunkkal az a célunk, hogy partnereink láthatóvá váljanak és üzeneteik elérjék a megfelelő közönséget.Ismerd meg korábbi munkáinkat a képekre kattintva és kezdjünk bele együtt egy új projektbe! ",
         servicesSocialtitle: "Közösségi média menedzsment",
-        servicesSocialText: "A közösségi felületek menedzselése: kommunikációs stratégia megalkotása, szövegírás és posztok gyártása, grafikai és arculati elemek megalkotása, online kampányok koordinálása, eredmények nyomon követése, valamint kommentek/üzenetek kezelése.",
+        servicesSocialText: "Közösségi felületek menedzselése: kommunikációs stratégia megalkotása, szövegírás és posztok gyártása, grafikai és arculati elemek megalkotása, online kampányok koordinálása, eredmények nyomon követése, valamint kommentek/üzenetek kezelése.",
         servicesVideoTitle: "Filmek és videók",
-        servicesVideoText: "Image videók, kisfilmek, termékbemutatók az ötleteléstől a teljes kivitelezésig.",
+        servicesVideoText: "Image videók, kisfilmek, termékbemutatók az ötleteléstől a teljes kivitelezésig: reklámfilmek, imázsfilmek, TikTok videók, rövidfilmek, játékfilmek, live stream (FB, YouTube, IG), drónvideók.",
         servicesPhotoTitle: "Fotózás",
-        servicesPhotoText: "Fotózás a csapatunkkal az ötlettől a professzionális felhasználásig.",
+        servicesPhotoText: "Fotózás a csapatunkkal az ötlettől a professzionális felhasználásig: termékfotózás, helyszínfotózás, ételfotózás, eseményfotózás, werkfotózás, drónfotózás, portréfotózás, csapatfotózás",
 
 
         //team
