@@ -86,6 +86,8 @@
 
 }
 
+
+
 #i18nbutton{
     font-weight: bolder;
 }
@@ -263,6 +265,7 @@ border: none;
     letter-spacing: 0.5em;
     color: #ff1b76;
     font-size: xx-large;
+    font-variant: small-caps;
 
 }
 
@@ -299,6 +302,15 @@ border: none;
         font-size: small;
     }
 
+    .navbar {
+        display: flex;
+        align-items: center; /* Center items vertically */
+        justify-content: center;
+        text-align: center; /* Center text horizontally */
+    }
+
+
+
 }
 
 @media (max-width: 768px) {
@@ -312,6 +324,7 @@ border: none;
     #videoServiceText,#photoServiceText,#socialServiceText{
         font-size: small;
     }
+
 }
 
 @media (max-width: 1024px) {
