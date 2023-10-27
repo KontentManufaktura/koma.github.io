@@ -30,19 +30,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
     document.getElementById('content').addEventListener('click', function (event) {
-        if (event.target.classList.contains('homePageServicesImg')) {
+        if (
+            event.target.classList.contains('homePageServicesImg') ||
+            event.target.classList.contains('serviceOverlay') ||
+            event.target.parentElement.classList.contains('serviceOverlay')
+        ) {
             loadContent('services.html', 'content');
-        }
-    });
-
-
-    document.getElementById('content').addEventListener('click', function (event) {
-        if (event.target.classList.contains('homePageTeamImg')) {
+        } else if (event.target.classList.contains('homePageTeamImg')) {
+            loadContent('team.html', 'content');
+        } else if (event.target.classList.contains('names') ||
+                   event.target.classList.contains('roles')) {
             loadContent('team.html', 'content');
         }
     });
-
+    
 
     // // Load initial content
     loadContent('home.html');
@@ -112,14 +115,14 @@ var languages = {
         navbarContact: "contact",
         contactSalesText: "If you also want to reach your target audience with content that triggers interaction, let's start working together. Write to us in the form below how we can help your business, and we will get back to you within 3 working days.",
         contactGetInContactText: "Contact us:",
-        contactFormName: "Name",
-        contactFormTel: "Phone",
-        contactFromMessage: "Message",
-        contactFormInterests: "Interests",
+        contactFormName: "Name:",
+        contactFormTel: "Phone:",
+        contactFromMessage: "Message:",
+        contactFormInterests: "Interests:",
         contactFormSocial: "Social media management",
         contactFormVideo: "Photo",
         contactFormPhoto: "Video",
-        contactPageTel: "Phone",
+        contactPageTel: "Phone:",
 
         //homepage
         greetingTextHomePage: "Hello, we are KOMA. Three creative freelancers with numerous years of creative agency experience behind us have formed a team to deliver your brand's messages on social media with truly creative multimedia content and advertising campaigns. Our mission is to demonstrate that with honesty and authenticity, a new direction can be achieved for everyone in the world of marketing.",
@@ -162,14 +165,14 @@ var languages = {
         navbarContact: "kapcsolat",
         contactSalesText: "Ha te is szeretnéd elérni a célközönséged olyan tartalmakkal, amelyek interakciót váltanak ki, akkor kezdjük el a közös munkát. Írd meg nekünk az alábbi űrlapon, hogy miben tudunk segíteni a vállalkozásodnak és mi 3 munkanapon belül visszajelzünk.",
         contactGetInContactText: "Lépj velünk kapcsolatba!",
-        contactFormName: "Név",
-        contactFormTel: "Telefonszám",
-        contactFromMessage: "Üzenet",
-        contactFormInterests: "Érdeklődési kör",
+        contactFormName: "Név:",
+        contactFormTel: "Telefonszám:",
+        contactFromMessage: "Üzenet:",
+        contactFormInterests: "Érdeklődési kör:",
         contactFormSocial: "Közösségi média menedzsment",
         contactFormVideo: "Fotózás",
         contactFormPhoto: "Film- és videógyártás",
-        contactPageTel: "Telefonszám",
+        contactPageTel: "Telefonszám:",
         submitButtonText: "Küldés",
 
         //homepage
@@ -240,6 +243,9 @@ function getCurrentPage() {
         return "home.html";
     }
 }
+
+
+
 
 var elementsToTranslate = {
     "i18nbutton": "buttonText",
