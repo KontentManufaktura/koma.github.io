@@ -461,7 +461,6 @@ border: none;
 }
 
 
-/* styles.css */
 body {
     top: 0;
     left: 0;
@@ -476,4 +475,3 @@ body {
   .fade-out {
     opacity: 0; /* Set opacity to 0 to fade out */
   }
-  
