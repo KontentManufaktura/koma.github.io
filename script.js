@@ -337,6 +337,8 @@ function updatePageContent(language) {
       }
     }
   }
+
+  var currentLanguage = "hu";
   
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'en' ? 'hu' : 'en';
