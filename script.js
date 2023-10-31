@@ -1,3 +1,5 @@
+
+//================== BUTTONS,LOAD,REDIRECT ===============================
 function scrollToContact() {
     const contactSection = document.getElementById('contact');
     const navbarHeight = document.querySelector('.navbar').offsetHeight;
@@ -6,145 +8,254 @@ function scrollToContact() {
         behavior: 'smooth'
     });
 }
+function handleLinkClick(event, targetPage) {
+    event.preventDefault(); // Prevent the default link behavior (page reload)
 
-document.addEventListener('DOMContentLoaded', function () {
-    //loadNavbar();
-    const contactLink = document.querySelector('.nav-link[onclick="scrollToContact()"]');
-    if (contactLink) {
-        contactLink.addEventListener('click', scrollToContact);
-    }
-});
+    document.body.classList.add('fade-out');
 
+    // After a short delay, navigate to the target page
+    setTimeout(function() {
+        window.location.href = targetPage;
+    }, 1000); // Adjust the delay (in milliseconds) as needed
+}
 
+function loadNavbar() {
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
 
+            const loadPage1Button = document.getElementById('loadServices');
+            const loadPage2Button = document.getElementById('loadTeam');
+            const loadHomePage = document.getElementById('navbarLogo');
 
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const contentContainer = document.getElementById('content');
-    const loadPage1Button = document.getElementById('loadServices');
-    const loadPage2Button = document.getElementById('loadTeam');
-    const loadHomePage = document.getElementById('navbarLogo');
-
-
-
-
-    document.getElementById('content').addEventListener('click', function (event) {
-        if (
-            event.target.classList.contains('homePageServicesImg') ||
-            event.target.classList.contains('serviceOverlay') ||
-            event.target.parentElement.classList.contains('serviceOverlay')
-        ) {
-            loadContent('services.html', 'content');
-        } else if (event.target.classList.contains('homePageTeamImg')) {
-            loadContent('team.html', 'content');
-        } else if (event.target.classList.contains('names') ||
-                   event.target.classList.contains('roles')) {
-            loadContent('team.html', 'content');
-        }
-    });
+            // Function to handle link clicks and trigger the crossfade effect
     
 
-    // // Load initial content
-    loadContent('home.html');
-
-    // Button click event handlers
-    loadPage1Button.addEventListener('click', function () {
-        loadContent('services.html');
-    });
-
-    loadPage2Button.addEventListener('click', function () {
-        loadContent('team.html');
-    });
-
-    loadHomePage.addEventListener('click', function () {
-        loadContent('home.html');
-    });
-
-    function loadContent(page) {
-        fetch(page)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('content').innerHTML = data;
-                // After loading content, call the updateContent function with the loaded page name
-                updateContent(currentLanguage, page);
-                scrollToTop();
+            loadPage1Button.addEventListener('click', function (event) {
+                handleLinkClick(event, 'services.html'); // Redirect to 'services.html'
             });
-    }
 
+            loadPage2Button.addEventListener('click', function (event) {
+                handleLinkClick(event, 'team.html'); // Redirect to 'team.html'
+            });
+
+            loadHomePage.addEventListener('click', function (event) {
+                handleLinkClick(event, 'index.html'); // Redirect to 'index.html'
+            });
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+}
+
+// Add an event listener to trigger the fade-in animation when the page is fully loaded
+window.addEventListener("load", function() {
+    document.body.classList.add("fade-in");
 });
 
-function scrollToTop() {
-    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-    window.scrollTo({
-        top: -navbarHeight,
-        behavior: 'smooth'
+
+
+window.addEventListener('DOMContentLoaded', loadNavbar);
+
+// Function to load contact.html into the contact-placeholder div
+function loadContact() {
+    fetch('contact.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('contact-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading contact content:', error));
+}
+window.addEventListener('DOMContentLoaded', loadContact);
+
+
+
+
+document.addEventListener('click', function (event) {
+    if (
+        event.target.classList.contains('homePageServicesImg') ||
+        event.target.classList.contains('serviceOverlay') ||
+        (event.target.parentElement && event.target.parentElement.classList.contains('serviceOverlay'))
+    ) {
+        handleLinkClick(event, 'services.html'); // Redirect to 'services.html'
+    } else if (event.target.classList.contains('homePageTeamImg') ||
+        event.target.classList.contains('names') ||
+        event.target.classList.contains('roles')) {
+            handleLinkClick(event, 'team.html'); // Redirect to 'team.html'
+        }
+});
+
+
+//============================= CAROUSELS =======================================
+
+
+const carousel1img = [
+    'img/socialmediaref/aktivitasnovelo.jpg',
+    'img/socialmediaref/aktivitasnovelo1.jpg',
+    'img/socialmediaref/aktivitasnovelo2.jpg',
+    'img/socialmediaref/aktivitasnovelo3.jpg',
+    'img/socialmediaref/aktivitasnovelo4.jpg',
+    'img/socialmediaref/aktivitasnovelo6.jpg',
+    'img/socialmediaref/aktivitasnovelo7.jpg',
+    'img/socialmediaref/aktivitasnovelo8.jpg',
+    'img/socialmediaref/aktivitasnovelo9.jpg',
+    'img/socialmediaref/aktivitasnovelo10.jpg',
+    'img/socialmediaref/aktualitas.jpg',
+    'img/socialmediaref/aktualitas1.jpg',
+    'img/socialmediaref/aktualitas2.jpg',
+    'img/socialmediaref/aktualitas3.jpg',
+    'img/socialmediaref/aktualitas4.jpg',
+    'img/socialmediaref/grapich.jpg',
+    'img/socialmediaref/IG.jpg',
+    'img/socialmediaref/kovetoosztonzes.jpg',
+    'img/socialmediaref/kovetoosztonzes1.jpg',
+    'img/socialmediaref/kovetoosztonzes2.jpg',
+    'img/socialmediaref/kreativ_szovegiras.jpg',
+    'img/socialmediaref/kreativ_szovegiras1.jpg',
+    'img/socialmediaref/kreativ_szovegiras2.jpg',
+    'img/socialmediaref/kreativ_szovegiras3.jpg',
+    'img/socialmediaref/kreativ_szovegiras4.jpg',
+    'img/socialmediaref/nyeremenyjatek.jpg',
+    'img/socialmediaref/nyeremenyjatek1.jpg',
+    'img/socialmediaref/nyeremenyjatek2.jpg',
+    'img/socialmediaref/nyeremenyjatek3.jpg',
+    'img/socialmediaref/nyeremenyjatek4.jpg'
+];
+
+const carousel2videos=[
+    '81z1RGtGGT4',
+    'nKIwGJWFRVE',
+    'Fxg-DtftwEI'
+]
+
+const carousel3img = [
+    'img/photoref/DJI_0023.jpg másolata.jpg',
+    'img/photoref/DJI_0437.jpg másolata.jpg',
+    'img/photoref/DJI_0442.jpg',
+    'img/photoref/IMG_8187.jpg',
+    'img/photoref/IMG_8212.jpg'
+];
+
+const carouselImages = [
+    carousel1img,
+    carousel2videos,
+    carousel3img
+];
+
+function initCarousel(carouselId, mediaArray) {
+    const carousel = document.querySelector(carouselId);
+
+    mediaArray.forEach((media, index) => {
+        const carouselItem = document.createElement("div");
+        carouselItem.classList.add("carousel-item");
+        if (index === 0) {
+            carouselItem.classList.add("active");
+        }
+
+        if (media.includes("youtube.com")) {
+            // Load YouTube video
+            const videoContainer = document.createElement("div");
+            videoContainer.classList.add("embed-responsive", "embed-responsive-16by9");
+            videoContainer.innerHTML = `<iframe class="embed-responsive-item" src="${media}" allowfullscreen></iframe>`;
+            carouselItem.appendChild(videoContainer);
+        } else {
+            // Display images
+            const image = document.createElement("img");
+            image.src = media;
+            image.classList.add("d-block", "w-100");
+            carouselItem.appendChild(image);
+        }
+
+        const indicators = carousel.querySelector(".carousel-indicators");
+        if (indicators) {
+            const indicator = document.createElement("li");
+            indicator.setAttribute("data-target", carouselId);
+            indicator.setAttribute("data-slide-to", index);
+            if (index === 0) {
+                indicator.classList.add("active");
+            }
+            indicators.appendChild(indicator);
+        }
+
+        carousel.querySelector(".carousel-inner").appendChild(carouselItem);
     });
 }
 
+function loadYouTubeVideo(videoId) {
+    const playerContainer = document.getElementById("youtube-player");
+    playerContainer.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+}
+function updateModalContent(imageIndex) {
+    const modal = $("#modal");
+    const carousel = document.querySelector("#carousel");
+    const imageCarousel = document.querySelector("#imageCarousel");
+    const indicators = carousel.querySelector(".carousel-indicators");
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    //loadNavbar();
-    const contactLink = document.querySelector('.nav-link[onclick="scrollToContact()"]');
-    if (contactLink) {
-        contactLink.addEventListener('click', scrollToContact);
+    imageCarousel.innerHTML = "";
+    if (indicators) {
+        indicators.innerHTML = "";
     }
 
-    // Add event listeners to the buttons to scroll to the top
-    const loadPage1Button = document.getElementById('loadServices');
-    const loadPage2Button = document.getElementById('loadTeam');
-    const loadHomePage = document.getElementById('navbarLogo');
+    if (imageIndex === 1) {
+        initCarousel("#carousel", carousel2videos.map(videoId => `https://www.youtube.com/embed/${videoId}`));
+    } else {
 
+        initCarousel("#carousel", carouselImages[imageIndex]);
+    }
 
-    loadPage1Button.addEventListener('click', scrollToTop);
-    loadPage2Button.addEventListener('click', scrollToTop);
-    loadHomePage.addEventListener('click', scrollToTop);
+    modal.modal("show");
+}
 
+const serviceImages = document.querySelectorAll('.serviceSubImg');
+serviceImages.forEach((image, index) => {
+    image.addEventListener("click", function () {
+        updateModalContent(index);
+    });
 });
 
 
-
+//=================== LANG SETTINGS ========================
 var languages = {
     en: {
-        buttonText: "hun",
-        navbarServices: "services",
-        navbarAbout: "about us",
-        navbarContact: "contact",
-        contactSalesText: "If you also want to reach your target audience with content that triggers interaction, let's start working together. Write to us in the form below how we can help your business, and we will get back to you within 3 working days.",
-        contactGetInContactText: "Contact us:",
-        contactFormName: "Name:",
-        contactFormTel: "Phone:",
-        contactFromMessage: "Message:",
-        contactFormInterests: "Interests:",
-        contactFormSocial: "Social media management",
-        contactFormVideo: "Photo",
-        contactFormPhoto: "Video",
-        contactPageTel: "Phone:",
+        //navbar
+        buttonText: "hu",
+        loadServices: "services",
+        loadTeam: "about us",
+        contactButon: "contact",
+
+        //contactform
+        salesText: "If you also want to reach your target audience with content that triggers interaction, let's start working together. Write to us in the form below how we can help your business, and we will get back to you within 3 working days.",
+        getInContact: "Contact us:",
+        nameLabel: "Name:",
+        telLabel: "Phone:",
+        msgLabel: "Message:",
+        interestsText: "Interests:",
+        socialLabel: "Social media management",
+        videoLabel: "Photo",
+        photoLabel: "Video",
+        contactUsTel: "Phone:",
+        submitButton: "Send",
+
 
         //homepage
-        greetingTextHomePage: "Hello, we are KOMA. Three creative freelancers with numerous years of creative agency experience behind us have formed a team to deliver your brand's messages on social media with truly creative multimedia content and advertising campaigns. Our mission is to demonstrate that with honesty and authenticity, a new direction can be achieved for everyone in the world of marketing.",
-        homePageTeamText: "team",
-        homePageEdmondText: "Social media manager",
-        homePageIngridText: "Project manager",
-        homePageGergoText: "Grapich designer, video producer",
-        homePageServicesText: "services",
-        homePageSocialServiceText: "Social media management",
-        homePagePhotoServiceText: "Photography",
-        homePageVideoServiceText: "Film and video production",
-        submitButtonText: "Send",
+        greetingText: "Hello, we are KOMA. Three creative freelancers with numerous years of creative agency experience behind us have formed a team to deliver your brand's messages on social media with truly creative multimedia content and advertising campaigns. Our mission is to demonstrate that with honesty and authenticity, a new direction can be achieved for everyone in the world of marketing.",
+        teamText: "team",
+        edmondRole: "Social media manager",
+        ingridRole: "Project manager",
+        gergoRole: "Grapich designer, video producer",
+        servicesText: "services",
+        socialServiceText: "Social media management",
+        photoServiceText: "Photography",
+        videoServiceText: "Film and video production",
 
         //services
         servicesSubTitle: "services",
-        servicesGreeting: "Social media is part of our daily lives, but for us it's also our job and hobby. With our multimedia content production, our goal is to make our partners visible and their messages reach the right audience. Get to know our previous works by clicking on the pictures and let's start a new project together!",
-        servicesSocialtitle: "Social media management",
-        servicesSocialText: "Management of social media platforms: creating a communication strategy, writing and producing posts, designing graphic and branding elements, coordinating online campaigns, monitoring results, and managing comments/messages.",
-        servicesVideoTitle: "Film and video production",
-        servicesVideoText: "Image videos, short films, product presentations movies - from ideation to full implementation: commercials, image films, TikTok videos, short films, feature films, live stream (FB, YouTube, IG), drone films",
-        servicesPhotoTitle: "Photography",
-        servicesPhotoText: "Photography making with our team - from idea to professional use: product photography, location photography, food photography, event photography, workplace photography, drone photography, portrait photography, team photography",
+        teamTextServices: "Social media is part of our daily lives, but for us it's also our job and hobby. With our multimedia content production, our goal is to make our partners visible and their messages reach the right audience. Get to know our previous works by clicking on the pictures and let's start a new project together!",
+        services1title: "Social media management",
+        servies1text: "Management of social media platforms: creating a communication strategy, writing and producing posts, designing graphic and branding elements, coordinating online campaigns, monitoring results, and managing comments/messages.",
+        services2title: "Film and video production",
+        services2text: "Image videos, short films, product presentations movies - from ideation to full implementation: commercials, image films, TikTok videos, short films, feature films, live stream (FB, YouTube, IG), drone films",
+        services3title: "Photography",
+        services3text: "Photography making with our team - from idea to professional use: product photography, location photography, food photography, event photography, workplace photography, drone photography, portrait photography, team photography",
 
 
         //team
@@ -159,42 +270,45 @@ var languages = {
 
     },
     hu: {
+        //navbar
         buttonText: "en",
-        navbarServices: "szolgáltatások",
-        navbarAbout: "rólunk",
-        navbarContact: "kapcsolat",
-        contactSalesText: "Ha te is szeretnéd elérni a célközönséged olyan tartalmakkal, amelyek interakciót váltanak ki, akkor kezdjük el a közös munkát. Írd meg nekünk az alábbi űrlapon, hogy miben tudunk segíteni a vállalkozásodnak és mi 3 munkanapon belül visszajelzünk.",
-        contactGetInContactText: "Lépj velünk kapcsolatba!",
-        contactFormName: "Név:",
-        contactFormTel: "Telefonszám:",
-        contactFromMessage: "Üzenet:",
-        contactFormInterests: "Érdeklődési kör:",
-        contactFormSocial: "Közösségi média menedzsment",
-        contactFormVideo: "Fotózás",
-        contactFormPhoto: "Film- és videógyártás",
-        contactPageTel: "Telefonszám:",
-        submitButtonText: "Küldés",
+        loadServices: "szolgáltatások",
+        loadTeam: "rólunk",
+        contactButon: "kapcsolat",
+
+        //contactform
+        salesText: "Ha te is szeretnéd elérni a célközönséged olyan tartalmakkal, amelyek interakciót váltanak ki, akkor kezdjük el a közös munkát. Írd meg nekünk az alábbi űrlapon, hogy miben tudunk segíteni a vállalkozásodnak és mi 3 munkanapon belül visszajelzünk.",
+        getInContact: "Lépj velünk kapcsolatba!",
+        nameLabel: "Név:",
+        telLabel: "Telefonszám:",
+        msgLabel: "Üzenet:",
+        interestsText: "Érdeklődési kör:",
+        socialLabel: "Közösségi média menedzsment",
+        videoLabel: "Fotózás",
+        photoLabel: "Film- és videógyártás",
+        contactUsTel: "Telefonszám:",
+        submitButton: "Küldés",
 
         //homepage
-        greetingTextHomePage: "Hello, mi vagyunk a KOMA! Három kreatív szabadúszó, többéves reklámügynökségi tapasztalattal a hátunk mögött összeálltuk egy csapatba, hogy igazán kreatív multimédiás tartalmakkal és hirdetési kampányokkal célba juttassuk a márkád üzeneteit a közösségi médiában. Küldetésünk megmutatni azt, hogy őszinteséggel, hitelességgel mindenki számára új irány érhető el a marketing világában.",
-        homePageTeamText: "csapatunk",
-        homePageEdmondText: "Közösségi média menedzser",
-        homePageIngridText: "Projekt menedzser",
-        homePageGergoText: "Grafikus, videógyártó",
-        homePageServicesText: "szolgáltatások",
-        homePageSocialServiceText: "Közösségi média menedzsment",
-        homePagePhotoServiceText: "Fotózás",
-        homePageVideoServiceText: "Film- és videógyártás",
+        greetingText: "Hello, mi vagyunk a KOMA! Három kreatív szabadúszó, többéves reklámügynökségi tapasztalattal a hátunk mögött összeálltuk egy csapatba, hogy igazán kreatív multimédiás tartalmakkal és hirdetési kampányokkal célba juttassuk a márkád üzeneteit a közösségi médiában. Küldetésünk megmutatni azt, hogy őszinteséggel, hitelességgel mindenki számára új irány érhető el a marketing világában.",
+        teamText: "csapatunk",
+        edmondRole: "Közösségi média menedzser",
+        ingridRole: "Projekt menedzser",
+        gergoRole: "Grafikus, videógyártó",
+        servicesText: "szolgáltatások",
+        socialServiceText: "Közösségi média menedzsment",
+        photoServiceText: "Fotózás",
+        videoServiceText: "Film- és videógyártás",
 
         //servicespage
         servicesSubTitle: "szolgáltatások",
-        servicesGreeting: "Mindennapjaink része a közösségi média, nekünk pedig a digitális marketing a munkánk és a hobbink is egyben. Multimédiás tartalomgyártásunkkal az a célunk, hogy partnereink láthatóvá váljanak és üzeneteik elérjék a megfelelő közönséget. Ismerd meg korábbi munkáinkat a képekre kattintva és kezdjünk bele együtt egy új projektbe! ",
-        servicesSocialtitle: "Közösségi média menedzsment",
-        servicesSocialText: "Közösségi felületek menedzselése: kommunikációs stratégia megalkotása, szövegírás és posztok gyártása, grafikai és arculati elemek megalkotása, online kampányok koordinálása, eredmények nyomon követése, valamint kommentek/üzenetek kezelése.",
-        servicesVideoTitle: "Filmek és videók",
-        servicesVideoText: "Image videók, kisfilmek, termékbemutatók az ötleteléstől a teljes kivitelezésig: reklámfilmek, imázsfilmek, TikTok videók, rövidfilmek, játékfilmek, live stream (FB, YouTube, IG), drónvideók.",
-        servicesPhotoTitle: "Fotózás",
-        servicesPhotoText: "Fotózás a csapatunkkal az ötlettől a professzionális felhasználásig: termékfotózás, helyszínfotózás, ételfotózás, eseményfotózás, werkfotózás, drónfotózás, portréfotózás, csapatfotózás",
+        teamTextServices: "Mindennapjaink része a közösségi média, nekünk pedig a digitális marketing a munkánk és a hobbink is egyben. Multimédiás tartalomgyártásunkkal az a célunk, hogy partnereink láthatóvá váljanak és üzeneteik elérjék a megfelelő közönséget. Ismerd meg korábbi munkáinkat a képekre kattintva és kezdjünk bele együtt egy új projektbe! ",
+        services1title: "Közösségi média menedzsment",
+        servies1text: "Közösségi felületek menedzselése: kommunikációs stratégia megalkotása, szövegírás és posztok gyártása, grafikai és arculati elemek megalkotása, online kampányok koordinálása, eredmények nyomon követése, valamint kommentek/üzenetek kezelése.",
+        services2title: "Filmek és videók",
+        services2text: "Image videók, kisfilmek, termékbemutatók az ötleteléstől a teljes kivitelezésig: reklámfilmek, imázsfilmek, TikTok videók, rövidfilmek, játékfilmek, live stream (FB, YouTube, IG), drónvideók.",
+        services3title: "Fotózás",
+        services3text: "Fotózás a csapatunkkal az ötlettől a professzionális felhasználásig: termékfotózás, helyszínfotózás, ételfotózás, eseményfotózás, werkfotózás, drónfotózás, portréfotózás, csapatfotózás",
 
 
         //team
@@ -211,120 +325,47 @@ var languages = {
 
 
 
-var currentLanguage = 'hu'; // Change this to 'en'
+
+
+function updatePageContent(language) {
+    var languageObject = languages[language];
+    for (var key in languageObject) {
+      var translatedText = languageObject[key];
+      var element = document.getElementById(key);
+      if (element) {
+        element.textContent = translatedText;
+      }
+    }
+  }
+  
 function toggleLanguage() {
-    // Toggle the current language
     currentLanguage = currentLanguage === 'en' ? 'hu' : 'en';
-
-    // Update the button label
     document.getElementById("i18nbutton").textContent = languages[currentLanguage].buttonText;
+    updatePageContent(currentLanguage);
 
-    // Determine the currently displayed page based on the content of the #content element
-    var currentPage = getCurrentPage();
-
-    // Call the updateContent function to update the text on the currently displayed page
-    updateContent(currentLanguage, currentPage);
+    // Store the current language preference in localStorage
+    localStorage.setItem('currentLanguage', currentLanguage);
 }
 
-// Function to determine the current page based on the content of #content
-function getCurrentPage() {
-    var contentElement = document.getElementById("content");
-    var contentText = contentElement.textContent;
 
-    // Check if the content includes both "Rólunk" and "About us" text
-    if (contentText.includes("Hello, mi vagyunk a KOMA!") || contentText.includes("Hello, we are KOMA.")) {
-        return "home.html";
-    } else if (contentText.includes("rólunk") || contentText.includes("about us")) {
-        return "team.html";
-    } else if (contentText.includes("services") || contentText.includes("szolgáltatások")) {
-        return "services.html";
-    } else {
-        // Default to the home page if none of the page contents match
-        return "home.html";
+document.addEventListener('DOMContentLoaded', function () {
+    const storedLanguage = localStorage.getItem('currentLanguage');
+    if (storedLanguage && languages[storedLanguage]) {
+        currentLanguage = storedLanguage;
+       //document.getElementById('i18nbutton').textContent = languages[currentLanguage].buttonText;
+        updatePageContent(currentLanguage);
     }
-}
+    
+});
 
-
-
-
-var elementsToTranslate = {
-    "i18nbutton": "buttonText",
-    "loadServices": "navbarServices",
-    "edmondRole": "homePageEdmondText",
-    "loadTeam": "navbarAbout",
-    "contactButon": "navbarContact",
-    "salesText": "contactSalesText",
-    "getInContact": "contactGetInContactText",
-    "nameLabel": "contactFormName",
-    "telLabel": "contactFormTel",
-    "msgLabel": "contactFromMessage",
-    "interestsText": "contactFormInterests",
-    "socialLabel": "contactFormSocial",
-    "videoLabel": "contactFormVideo",
-    "photoLabel": "contactFormPhoto",
-    "submitButton": "submitButtonText",
-    "contactUsTel": "contactPageTel"
-};
-
-var elementsToTranslateHomePage = {
-    "greetingText": "greetingTextHomePage",
-    "teamText": "homePageTeamText",
-    "ingridRole": "homePageIngridText",
-    "gergoRole": "homePageGergoText",
-    "servicesText": "homePageServicesText",
-    "socialServiceText": "homePageSocialServiceText",
-    "photoServiceText": "homePagePhotoServiceText",
-    "videoServiceText": "homePageVideoServiceText"
-};
-
-var elementsToTranslateServicesPage = {
-    "servicesSubTitle": "servicesSubTitle",
-    "teamTextServices": "servicesGreeting",
-    "services1title": "servicesSocialtitle",
-    "servies1text": "servicesSocialText",
-    "services2title": "servicesVideoTitle",
-    "services2text": "servicesVideoText",
-    "services3title": "servicesPhotoTitle",
-    "services3text": "servicesPhotoText"
-};
-
-var elementsToTranslateTeamPage = {
-    "teamsubTitle": "teamsubTitle",
-    "teamTextAboutUs":  "teamTextAboutUs",
-    "edmondTeamRole": "edmondTeamRole",
-    "edmondTeamText":  "edmondTeamText",
-    "ingridTeamRole": "ingridTeamRole",
-    "ingridTextTeam":  "ingridTextTeam",
-    "gergoTeamRole":  "gergoTeamRole",
-    "gergoTextTeam":"gergoTextTeam"
-}
-
-function updateContent(language) {
-    var languageData = languages[language];
-    var elementsToTranslateCommon = elementsToTranslate;
-    var elementsToTranslatePage;
-
-    // Determine the page-specific elements based on the current page
-    var currentPage = getCurrentPage();
-
-    if (currentPage === "home.html") {
-        elementsToTranslatePage = elementsToTranslateHomePage;
-    } else if (currentPage === "services.html") {
-        elementsToTranslatePage = elementsToTranslateServicesPage;
-    } else if (currentPage === "team.html") {
-        elementsToTranslatePage = elementsToTranslateTeamPage;
+setTimeout(function() {
+    // Check if a language preference is stored in local storage
+    const storedLanguage = localStorage.getItem('currentLanguage');
+    if (storedLanguage && languages[storedLanguage]) {
+        currentLanguage = storedLanguage;
+        document.getElementById('i18nbutton').textContent = languages[currentLanguage].buttonText;
+        updatePageContent(currentLanguage);
     }
+}, 50); // Add a 1000ms (1 second) delay
 
-    // Merge common and page-specific elements
-    var mergedElementsToTranslate = { ...elementsToTranslateCommon, ...elementsToTranslatePage };
-
-    // Iterate through the merged mapping and update content for each element
-    for (var elementId in mergedElementsToTranslate) {
-        var languageKey = mergedElementsToTranslate[elementId];
-        var element = document.getElementById(elementId);
-        if (element) {
-            element.textContent = languageData[languageKey];
-        }
-    }
-}
 

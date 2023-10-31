@@ -1,0 +1,86 @@
+ <div id="contact" class="pt-4 mt-5">
+        <div class="text-center pt-4 pb-4">
+            <h1 id="getInContact" style="color: white; font-weight: bold;">Lépj velünk kapcsolatba!
+            </h1>
+        </div>
+        <div class=" d-flex justify-content-center align-items-center ">
+            <h2 id="salesText" class="text-left text-break" style="width: 70%; max-width: 100%;line-height:2.5rem;">
+                Ha te is szeretnéd elérni a célközönséged olyan tartalmakkal, amelyek interakciót váltanak ki, akkor kezdjük el a közös munkát. Írd meg nekünk az alábbi űrlapon, hogy miben tudunk segíteni a vállalkozásodnak és mi 3 munkanapon belül visszajelzünk.
+            </h2>
+        </div>
+
+        <div id="contactMain" class=" d-flex justify-content-center align-items-center">
+
+            <div id="innerContact" class="row justify-content-center align-items-stretch">
+                <div id="contactForm" class="col-md-6 p-4 text-break">
+                    <form action="https://formspree.io/f/mwkdyqnj" method="POST">
+                        <input name="subject" type="hidden" value="New email from {{email}}" />
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name" id="nameLabel">Név:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone" id="telLabel">Telefonszám:</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" id="msgLabel">Üzenet:</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group ">
+                            <label id="interestsText">Érdeklődési kör:</label>
+                            <div class="form-check">
+                                <input type="checkbox" id="interest1" name="interest 1" value="Közösségi média menedzsment/Social media management"
+                                    class="form-check-input">
+                                <label for="interest1" id="socialLabel" class="form-check-label">Közösségi média menedzsment</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="interest2" name="interest 2" value="Fotózás/Photography"
+                                    class="form-check-input">
+                                <label for="interest2" id="videoLabel" class="form-check-label">Fotózás</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="interest3" name="interest 3" value="Film- és videógyártás/Film- and video production"
+                                    class="form-check-input">
+                                <label for="interest3" id="photoLabel" class="form-check-label">Film- és videógyártás</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" id="submitButton">Küldés</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-6 col-12 p-5">
+                    <div id="emailPhone" style="width: auto;">
+                        <div id="phone" class="mb-5">
+                            <h1 id="contactUsTel" class="text-break">Telefonszám:</h1>
+                            <h3 class="text-break" style="color: white;">+36301653132</h3>
+                        </div>
+                        <div id="emailKoma" class="mb-5">
+                            <h1 class="text-break">Email:</h1>
+                            <h3 class="text-break" style="color: white; max-width: 100%;">hello@kontentmanufaktura.com
+                            </h3>
+                        </div>
+                        <div id="social">
+                            <a  href="https://www.facebook.com/Kontentmanufaktura/" target="_blank">
+                                <img src="img\icons8-facebook.svg" alt="Facebook">
+                            </a>
+                            <a href="https://www.instagram.com/kontentmanufaktura/" target="_blank">
+                                <img src="img\icons8-instagram.svg" alt="Instagram">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
