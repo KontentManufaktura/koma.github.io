@@ -9,15 +9,13 @@ function scrollToContact() {
     });
 }
 function handleLinkClick(event, targetPage) {
-    event.preventDefault(); // Prevent the default link behavior (page reload)
+    event.preventDefault(); 
 
     document.body.classList.add('fade-out');
+    targetPage = targetPage.replace('.html', ''); 
 
-    // After a short delay, navigate to the target page
-    setTimeout(function() {
         window.location.href = targetPage;
-    }, 1000); // Adjust the delay (in milliseconds) as needed
-}
+    }
 
 function loadNavbar() {
     fetch('navbar.html')
@@ -33,11 +31,11 @@ function loadNavbar() {
     
 
             loadPage1Button.addEventListener('click', function (event) {
-                handleLinkClick(event, './services'); // Redirect to 'services.html'
+                handleLinkClick(event, 'services.html'); // Redirect to 'services.html'
             });
 
             loadPage2Button.addEventListener('click', function (event) {
-                handleLinkClick(event, './team'); // Redirect to 'team.html'
+                handleLinkClick(event, 'team.html'); // Redirect to 'team.html'
             });
 
             loadHomePage.addEventListener('click', function (event) {
@@ -83,6 +81,7 @@ document.addEventListener('click', function (event) {
             handleLinkClick(event, 'team.html'); // Redirect to 'team.html'
         }
 });
+
 
 
 //============================= CAROUSELS =======================================
