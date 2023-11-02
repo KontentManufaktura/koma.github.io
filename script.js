@@ -14,8 +14,9 @@ function handleLinkClick(event, targetPage) {
     document.body.classList.add('fade-out');
     targetPage = targetPage.replace('.html', ''); 
 
-    window.location.href = targetPage;
-
+    setTimeout(function() {
+        window.location.href = targetPage;
+    }, 1000);
 }
 function loadNavbar() {
     fetch('navbar.html')
