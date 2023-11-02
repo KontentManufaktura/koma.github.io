@@ -236,8 +236,14 @@ function updateModalContent(imageIndex) {
 const serviceLinks = document.querySelectorAll('a#modal2button');
 serviceLinks.forEach((link, index) => {
     link.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent the default behavior of the link
-        updateModalContent(index);
+        event.preventDefault();
+        if (index === 2) {
+            updateModalContent(1);
+        } else if (index === 1) {
+            updateModalContent(2);
+        } else {
+            updateModalContent(index);
+        }
     });
 });
 

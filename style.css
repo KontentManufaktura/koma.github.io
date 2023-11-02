@@ -284,6 +284,8 @@ border: none;
     right: -7rem;
 }
 
+
+
 @media (max-width: 576px) {
     h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text ,  #edmondTeamText , #gergoTextTeam,#ingridTextTeam{
         font-size: 0.2rem; /* Further adjust the font size for very small screens */
