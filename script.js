@@ -7,14 +7,15 @@ function scrollToContact() {
         top: contactSection.offsetTop - navbarHeight,
         behavior: 'smooth'
     });
+
 }
 function handleLinkClick(event, targetPage) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     document.body.classList.add('fade-out');
-    targetPage = targetPage.replace('.html', ''); 
+    targetPage = targetPage.replace('.html', '');
 
-    setTimeout(function() {
+    setTimeout(function () {
         window.location.href = targetPage;
     }, 1000);
 }
@@ -27,9 +28,6 @@ function loadNavbar() {
             const loadPage1Button = document.getElementById('loadServices');
             const loadPage2Button = document.getElementById('loadTeam');
             const loadHomePage = document.getElementById('navbarLogo');
-
-            // Function to handle link clicks and trigger the crossfade effect
-    
 
             loadPage1Button.addEventListener('click', function (event) {
                 handleLinkClick(event, 'services.html'); // Redirect to 'services.html'
@@ -46,8 +44,7 @@ function loadNavbar() {
         .catch(error => console.error('Error loading navbar:', error));
 }
 
-// Add an event listener to trigger the fade-in animation when the page is fully loaded
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     document.body.classList.add("fade-in");
 });
 
@@ -55,7 +52,6 @@ window.addEventListener("load", function() {
 
 window.addEventListener('DOMContentLoaded', loadNavbar);
 
-// Function to load contact.html into the contact-placeholder div
 function loadContact() {
     fetch('contact.html')
         .then(response => response.text())
@@ -75,14 +71,13 @@ document.addEventListener('click', function (event) {
         event.target.classList.contains('serviceOverlay') ||
         (event.target.parentElement && event.target.parentElement.classList.contains('serviceOverlay'))
     ) {
-        handleLinkClick(event, 'services.html'); // Redirect to 'services.html'
+        handleLinkClick(event, 'services.html'); 
     } else if (event.target.classList.contains('homePageTeamImg') ||
         event.target.classList.contains('names') ||
         event.target.classList.contains('roles')) {
-            handleLinkClick(event, 'team.html'); // Redirect to 'team.html'
-        }
+        handleLinkClick(event, 'team.html'); 
+    }
 });
-
 
 
 //============================= CAROUSELS =======================================
@@ -121,7 +116,7 @@ const carousel1img = [
     'img/socialmediaref/nyeremenyjatek4.jpg'
 ];
 
-const carousel2videos=[
+const carousel2videos = [
     '81z1RGtGGT4',
     'nKIwGJWFRVE',
     'Fxg-DtftwEI'
@@ -214,7 +209,7 @@ function updateModalContent(imageIndex) {
         carousel2Controls.forEach(control => {
             control.style.visibility = 'visible';
         });
-        modal = $("#modal2"); 
+        modal = $("#modal2");
         initCarousel("#carousel2", carousel2videos.map(videoId => `https://www.youtube.com/embed/${videoId}`));
     } else {
         const carousel2Controls = document.querySelectorAll('.carousel2-controls');
@@ -225,7 +220,7 @@ function updateModalContent(imageIndex) {
         carousel1Controls.forEach(control => {
             control.style.visibility = 'visible';
         });
-        
+
         initCarousel("#carousel", carouselImages[imageIndex]);
     }
 
@@ -249,11 +244,11 @@ serviceLinks.forEach((link, index) => {
 
 $('.modal').on('shown.bs.modal', function () {
     var memory = $(this).html();
-    
+
     $('.modal').on('hidden.bs.modal', function () {
         $('#imageCarousel2').html('');
     });
-    
+
 });
 
 
@@ -261,7 +256,7 @@ $('#carousel2').on('slid.bs.carousel', function () {
     var memory = $(this).html();
     $(this).html(memory);
 
-    
+
 
 });
 
@@ -391,22 +386,21 @@ var languages = {
 function updatePageContent(language) {
     var languageObject = languages[language];
     for (var key in languageObject) {
-      var translatedText = languageObject[key];
-      var element = document.getElementById(key);
-      if (element) {
-        element.textContent = translatedText;
-      }
+        var translatedText = languageObject[key];
+        var element = document.getElementById(key);
+        if (element) {
+            element.textContent = translatedText;
+        }
     }
-  }
+}
 
-  var currentLanguage = "hu";
-  
+var currentLanguage = "hu";
+
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'en' ? 'hu' : 'en';
     document.getElementById("i18nbutton").textContent = languages[currentLanguage].buttonText;
     updatePageContent(currentLanguage);
 
-    // Store the current language preference in localStorage
     localStorage.setItem('currentLanguage', currentLanguage);
 }
 
@@ -415,19 +409,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const storedLanguage = localStorage.getItem('currentLanguage');
     if (storedLanguage && languages[storedLanguage]) {
         currentLanguage = storedLanguage;
-       //document.getElementById('i18nbutton').textContent = languages[currentLanguage].buttonText;
         updatePageContent(currentLanguage);
     }
-    
+
 });
 
-setTimeout(function() {
-    // Check if a language preference is stored in local storage
+setTimeout(function () {
     const storedLanguage = localStorage.getItem('currentLanguage');
     if (storedLanguage && languages[storedLanguage]) {
         currentLanguage = storedLanguage;
         document.getElementById('i18nbutton').textContent = languages[currentLanguage].buttonText;
         updatePageContent(currentLanguage);
     }
-}, 50); // Add a 1000ms (1 second) delay
+}, 50); 
 
