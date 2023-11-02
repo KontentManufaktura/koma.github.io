@@ -128,11 +128,11 @@ const carousel2videos=[
 ]
 
 const carousel3img = [
-    'img/photoref/DJI_0023.jpg másolata.jpg',
-    'img/photoref/DJI_0437.jpg másolata.jpg',
-    'img/photoref/DJI_0442.jpg',
-    'img/photoref/IMG_8187.jpg',
-    'img/photoref/IMG_8212.jpg'
+    'img/photoref/fotó_referencia_1.jpg',
+    'img/photoref/fotó_referencia_2.jpg',
+    'img/photoref/fotó_referencia_3.jpg',
+    'img/photoref/fotó_referencia_4.jpg',
+    'img/photoref/fotó_referencia_5.jpg',
 ];
 
 const carouselImages = [

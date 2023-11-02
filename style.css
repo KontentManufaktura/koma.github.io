@@ -284,6 +284,22 @@ border: none;
     right: -7rem;
 }
 
+#carousel1 {
+    width: 40.625rem;
+    height: auto;
+
+}
+
+#carousel2{
+    width: 40.625rem;
+    height: auto;
+}
+
+#getInContact{
+    line-height: 4rem;
+
+}
+
 
 
 @media (max-width: 576px) {
