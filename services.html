@@ -7,6 +7,7 @@
     <title>Koma website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,7 +21,7 @@
         style="max-width: 100%; margin: 0 auto; height: 50%;">
         <div class="col-md-6 text text-center">
             <div id="greetingLogo">
-                <h1 id="servicesSubTitle" class="text-break" style="font-size: xx-large;">szolgáltatások</h1>
+                <h1 id="servicesSubTitle">szolgáltatások</h1>
             </div>
         </div>
     </div>
@@ -45,6 +46,11 @@
 
                                 <img src="img\közösségi média.jpg" alt="" class="img-fluid serviceSubImg"
                                     data-image-index="0">
+
+                                <div class="clickForReference">
+                                    <div id="referencetext1" class="img-text text-break referenceText"
+                                        data-image-index="0">Kattints a referenciákért</div>
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -74,9 +80,14 @@
                             <a id="modal2button" href="#modal" data-toggle="modal" data-modal-type="video"
                                 data-video-id="YOUR_YOUTUBE_VIDEO_ID">
                                 <img src="img/film.jpg" alt="" class="img-fluid serviceSubImg">
+                                <div class="clickForReference">
+                                    <div id="referencetext2" class="img-text text-break referenceText">Kattints a
+                                        referenciákért</div>
+                                </div>
                             </a>
                         </div>
                     </div>
+
                 </div>
                 <div class="col-md-6"
                     style="display: flex; align-items: center; justify-content: center; height: auto;">
@@ -101,7 +112,12 @@
                         <div class="img-containerSub">
                             <a id="modal2button" href="#modal" data-toggle="modal">
                                 <img src="img\fotó.jpg" alt="" class="img-fluid serviceSubImg" data-image-index="2">
+                                <div class="clickForReference text-center">
+                                    <div id="referencetext3" class="img-text text-break referenceText">Kattints a
+                                        referenciákért</div>
+                                </div>
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -126,33 +142,54 @@
     <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered no-border modal-lg">
             <div class="modal-content no-border">
-                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </a>
-                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" ariahidden="true"></span>
-                </a>
-                <div id="carousel" class="carousel slide">
-                    <div id="imageCarousel" class="carousel-inner"></div>
-                    <ol class="carousel-indicators" style="bottom: -3rem;"></ol>
+                <div id="carousel1" class="carousel slide" data-ride="carousel" data-touch="true">
+
+                    <a class="carousel-control-prev carousel1-controls" href="#carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next carousel1-controls" href="#carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" ariahidden="true"></span>
+                    </a>
+                    <div id="carousel" class="carousel slide">
+                        <div id="imageCarousel" class="carousel-inner"></div>
+                        <ol class="carousel-indicators" style="bottom: -3rem;"></ol>
+                    </div>
+                </div>
+
+
+                <div id="carousel2" class="carousel slide">
+
+                    <a id="carousel2prev" class="carousel-control-prev carousel2-controls" href="#carousel2" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a id="carousel2next" class="carousel-control-next carousel2-controls" href="#carousel2" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" ariahidden="true"></span>
+                    </a>
+                    <div id="carousel2slide" class="carousel slide">
+                        <div id="imageCarousel2" class="carousel-inner"></div>
+                        <ol class="carousel-indicators" style="bottom: -3rem;"></ol>
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="contact-placeholder"></div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        <div id="contact-placeholder"></div>
+        <script src="https://www.youtube.com/iframe_api"></script>
 
-    <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+        <script src="script.js"></script>
 </body>
 
 </html>

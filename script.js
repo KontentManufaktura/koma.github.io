@@ -141,8 +141,16 @@ const carouselImages = [
     carousel3img
 ];
 
+
+
 function initCarousel(carouselId, mediaArray) {
     const carousel = document.querySelector(carouselId);
+
+    const indicators = carousel.querySelector(".carousel-indicators");
+    if (indicators) {
+        indicators.innerHTML = "";
+    }
+
 
     mediaArray.forEach((media, index) => {
         const carouselItem = document.createElement("div");
@@ -152,20 +160,17 @@ function initCarousel(carouselId, mediaArray) {
         }
 
         if (media.includes("youtube.com")) {
-            // Load YouTube video
             const videoContainer = document.createElement("div");
             videoContainer.classList.add("embed-responsive", "embed-responsive-16by9");
             videoContainer.innerHTML = `<iframe class="embed-responsive-item" src="${media}" allowfullscreen></iframe>`;
             carouselItem.appendChild(videoContainer);
         } else {
-            // Display images
             const image = document.createElement("img");
             image.src = media;
             image.classList.add("d-block", "w-100");
             carouselItem.appendChild(image);
         }
 
-        const indicators = carousel.querySelector(".carousel-indicators");
         if (indicators) {
             const indicator = document.createElement("li");
             indicator.setAttribute("data-target", carouselId);
@@ -180,15 +185,20 @@ function initCarousel(carouselId, mediaArray) {
     });
 }
 
-function loadYouTubeVideo(videoId) {
-    const playerContainer = document.getElementById("youtube-player");
-    playerContainer.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
-}
 function updateModalContent(imageIndex) {
-    const modal = $("#modal");
+    var modal = $("#modal"); // Default modal element
     const carousel = document.querySelector("#carousel");
     const imageCarousel = document.querySelector("#imageCarousel");
     const indicators = carousel.querySelector(".carousel-indicators");
+
+    // Hide carousel2 when showing other services
+    if (imageIndex !== 1) {
+        $("#carousel2").addClass("d-none");
+        $(".carousel2-controls").hide();
+    } else {
+        $("#carousel2").removeClass("d-none");
+        $(".carousel2-controls").show();
+    }
 
     imageCarousel.innerHTML = "";
     if (indicators) {
@@ -196,21 +206,60 @@ function updateModalContent(imageIndex) {
     }
 
     if (imageIndex === 1) {
-        initCarousel("#carousel", carousel2videos.map(videoId => `https://www.youtube.com/embed/${videoId}`));
+        const carousel1Controls = document.querySelectorAll('.carousel1-controls');
+        carousel1Controls.forEach(control => {
+            control.style.visibility = 'hidden';
+        });
+        const carousel2Controls = document.querySelectorAll('.carousel2-controls');
+        carousel2Controls.forEach(control => {
+            control.style.visibility = 'visible';
+        });
+        modal = $("#modal2"); 
+        initCarousel("#carousel2", carousel2videos.map(videoId => `https://www.youtube.com/embed/${videoId}`));
     } else {
-
+        const carousel2Controls = document.querySelectorAll('.carousel2-controls');
+        carousel2Controls.forEach(control => {
+            control.style.visibility = 'hidden';
+        });
+        const carousel1Controls = document.querySelectorAll('.carousel1-controls');
+        carousel1Controls.forEach(control => {
+            control.style.visibility = 'visible';
+        });
+        
         initCarousel("#carousel", carouselImages[imageIndex]);
     }
 
     modal.modal("show");
 }
 
-const serviceImages = document.querySelectorAll('.serviceSubImg');
-serviceImages.forEach((image, index) => {
-    image.addEventListener("click", function () {
+
+const serviceLinks = document.querySelectorAll('a#modal2button');
+serviceLinks.forEach((link, index) => {
+    link.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default behavior of the link
         updateModalContent(index);
     });
 });
+
+$('.modal').on('shown.bs.modal', function () {
+    var memory = $(this).html();
+    
+    $('.modal').on('hidden.bs.modal', function () {
+        $('#imageCarousel2').html('');
+    });
+    
+});
+
+
+$('#carousel2').on('slid.bs.carousel', function () {
+    var memory = $(this).html();
+    $(this).html(memory);
+
+    
+
+});
+
+
 
 
 //=================== LANG SETTINGS ========================
@@ -256,6 +305,9 @@ var languages = {
         services2text: "Image videos, short films, product presentations movies - from ideation to full implementation: commercials, image films, TikTok videos, short films, feature films, live stream (FB, YouTube, IG), drone films",
         services3title: "Photography",
         services3text: "Photography making with our team - from idea to professional use: product photography, location photography, food photography, event photography, workplace photography, drone photography, portrait photography, team photography",
+        referencetext1: "Click for references",
+        referencetext2: "Click for references",
+        referencetext3: "Click for references",
 
 
         //team
@@ -309,6 +361,9 @@ var languages = {
         services2text: "Image videók, kisfilmek, termékbemutatók az ötleteléstől a teljes kivitelezésig: reklámfilmek, imázsfilmek, TikTok videók, rövidfilmek, játékfilmek, live stream (FB, YouTube, IG), drónvideók.",
         services3title: "Fotózás",
         services3text: "Fotózás a csapatunkkal az ötlettől a professzionális felhasználásig: termékfotózás, helyszínfotózás, ételfotózás, eseményfotózás, werkfotózás, drónfotózás, portréfotózás, csapatfotózás",
+        referencetext1: "Kattints a referenciákért",
+        referencetext2: "Kattints a referenciákért",
+        referencetext3: "Kattints a referenciákért",
 
 
         //team
@@ -369,5 +424,4 @@ setTimeout(function() {
         updatePageContent(currentLanguage);
     }
 }, 50); // Add a 1000ms (1 second) delay
-
 

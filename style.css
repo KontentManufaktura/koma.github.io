@@ -180,8 +180,22 @@ border: none;
 .serviceOverlay {
     position: absolute;
     bottom: 0;
-    left: 22,5%;
+   
     width: 58%;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.clickForReference{
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
     background: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
@@ -241,7 +255,7 @@ border: none;
     cursor: pointer;
 }
 
-.roles:hover, .names:hover, .serviceOverlay:hover{
+.roles:hover, .names:hover, .serviceOverlay:hover, .clickForReference:hover{
     color: #03d3a3;
 }
 
@@ -250,13 +264,11 @@ border: none;
 }
 
 #servicesSubTitle,#teamsubTitle{
-    font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.5em;
     color: #ff1b76;
-    font-size: xx-large;
     font-variant: small-caps;
-
+    font-size: xx-large;
 }
 
 #teamTextAboutUs,#teamTextServices{
@@ -264,9 +276,17 @@ border: none;
     width: 80%;
 }
 
+#carousel2prev{
+    left: -7rem;
+}
+
+#carousel2next{
+    right: -7rem;
+}
+
 @media (max-width: 576px) {
-    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText , #gergoTextTeam,#ingridTextTeam{
-        font-size: 0.5rem; /* Further adjust the font size for very small screens */
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text ,  #edmondTeamText , #gergoTextTeam,#ingridTextTeam{
+        font-size: 0.2rem; /* Further adjust the font size for very small screens */
         max-width: 100%; /* Make both columns take up the full width on small screens */
 
     }
@@ -281,12 +301,14 @@ border: none;
         text-align: center; /* Center text horizontally */
     }
 
-
+    #servicesSubTitle{
+        font-size: 1rem;
+    }
 
 }
 
 @media (max-width: 768px) {
-    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text ,#servicesSubTitle,#teamsubTitle, #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
+    h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text ,#teamsubTitle, #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
         font-size: 0.5rem; /* Adjust the font size for smaller screens */
         max-width: 100%; /* Make both columns take up the full width on small screens */
 
@@ -301,11 +323,27 @@ border: none;
     .serviceOverlay{
         width: 57%;
     }
+
+    #carousel2prev,
+  #carousel2next {
+    position: absolute;
+    top: -5rem;
+    height: 5rem;
+  }
+  #carousel2prev{
+    left: +0rem;
+  }
+
+  #carousel2next{
+    right: +0rem;
+}
+
+
+
 }
 
 @media (max-width: 1024px) {
     h1,h2,h3,h4,h5,h6, .img-text,.img-container-services .img-text , #edmondTeamText ,#gergoTextTeam,#ingridTextTeam{
-        font-size: 0.8rem; /* Adjust the font size for smaller screens */
         max-width: 100%; /* Make both columns take up the full width on small screens */
 
     }
@@ -382,13 +420,7 @@ border: none;
 
 }
 
-.carousel-control-next{
-    left: +48rem;
-}
 
-.carousel-control-prev{
-    left: -6rem;
-}
 
 
 #submitButton {
@@ -475,3 +507,8 @@ body {
   .fade-out {
     opacity: 0; /* Set opacity to 0 to fade out */
   }
+
+   a {
+      color: inherit;
+      text-decoration: none;
+    }
