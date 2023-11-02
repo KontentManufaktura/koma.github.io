@@ -33,15 +33,15 @@ function loadNavbar() {
     
 
             loadPage1Button.addEventListener('click', function (event) {
-                handleLinkClick(event, 'services.html'); // Redirect to 'services.html'
+                handleLinkClick(event, './services'); // Redirect to 'services.html'
             });
 
             loadPage2Button.addEventListener('click', function (event) {
-                handleLinkClick(event, 'team.html'); // Redirect to 'team.html'
+                handleLinkClick(event, './team'); // Redirect to 'team.html'
             });
 
             loadHomePage.addEventListener('click', function (event) {
-                handleLinkClick(event, 'index.html'); // Redirect to 'index.html'
+                handleLinkClick(event, './'); // Redirect to 'index.html'
             });
         })
         .catch(error => console.error('Error loading navbar:', error));
