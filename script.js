@@ -318,7 +318,7 @@ var languages = {
         edmondTeamText: "As a social media manager, my goal is to produce fun, but also result-oriented content. I have spent several years working at creative agencies and gained valuable experience in campaign planning, copywriting, advertising, and community management. I studied as a director and screenwriter at the Werk Academy's film school. I primarily managed the online presence of hospitality establishments, such as hotels and restaurants, but I also directed short films and wrote scripts for branding videos.",
         ingridTeamRole: "Project manager",
         ingridTextTeam: "As a project manager and copywriter, it's important to me to create value with our team. Not only to reach users with our content but to achieve interaction through it. I have worked with local small businesses and global brands, ranging from household appliances to wristwatches, so it's safe to say I've worked on almost everything. However, my heart is closest to culture and hospitality, and I'm also willing to stand up for social causes; I volunteered for several years, for example.",
-        gergoTeamRole: "Grapich designer, video producer",
+        gergoTeamRole: "Graphic designer, video producer",
         gergoTextTeam: "I am responsible for the visual aspect of posts to ensure they align with the brand identity and carry the practical aspects of video projects on my shoulders, from planning to post-production. I studied at Werk Academy's film school, now finishing at MOME Media Design. My experiences include designing and executing installations, creating music videos, producing promotional campaigns for the Hungarian Orienteering Federation, live visual performances at techno events, directing shorts/image videos, and so on."
 
     },
