@@ -192,8 +192,8 @@ border: none;
 }
 
 .clickForReference{
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: 2.5rem;
     left: 10%;
     width: 80%;
     background: rgba(255, 255, 255, 0.7);
@@ -357,6 +357,7 @@ border: none;
 }
 
 
+
 }
 
 @media (max-width: 1024px) {
@@ -383,7 +384,7 @@ border: none;
         width: auto;
         height: auto;
     }
-    
+
 
 }
 
@@ -425,7 +426,6 @@ border: none;
         font-size: medium;
     }
 
-    
 
 
     .col-md-6 {
